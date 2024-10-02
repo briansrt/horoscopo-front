@@ -16,7 +16,7 @@ function CreateUser() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch('http://localhost:4000/v1/credenciales/create-user', {
+            const response = await fetch('https://horoscopo-back.vercel.app/v1/credenciales/create-user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

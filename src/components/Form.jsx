@@ -17,7 +17,7 @@ function Form({callback}){
     const validateUser = async (event)=>{
         event.preventDefault();
         try {
-            const response = await fetch('http://localhost:4000/v1/credenciales/login', {
+            const response = await fetch('https://horoscopo-back.vercel.app/v1/credenciales/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

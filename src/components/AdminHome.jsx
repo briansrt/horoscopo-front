@@ -36,7 +36,7 @@ function AdminHome({user}){
         }
     
         // Realiza la solicitud fetch solo si "hola" no está en el texto
-        fetch(`http://localhost:4000/v1/signos/${signoEditar}`, {
+        fetch(`https://horoscopo-back.vercel.app/v1/signos/${signoEditar}`, {
             method: 'PATCH',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({"textoEditar": textoEditar})

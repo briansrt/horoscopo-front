@@ -16,7 +16,7 @@ function ChangePassword() {
         event.preventDefault();
         
         try {
-            const response = await fetch('http://localhost:4000/v1/credenciales/change-password', {
+            const response = await fetch('https://horoscopo-back.vercel.app/v1/credenciales/change-password', {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
