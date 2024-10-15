@@ -8,8 +8,7 @@ function ChangePassword() {
     const [newPassword, setNewPassword] = useState('');
 
     const home = useNavigate();
-    function goHome(event){
-        event.preventDefault(); // Evita que el botón envíe el formulario
+    function goHome(){
         home("/");
     }
 
@@ -53,7 +52,7 @@ function ChangePassword() {
             <br />
 
             <button type="submit" id="btnEnviar">Cambiar Contraseña</button>
-            <button className="link" onClick={goHome}>Volver</button>
+            <button type="button" className="link" onClick={goHome}>Volver</button>
         </form>
     );
 }
