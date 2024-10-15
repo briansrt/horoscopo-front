@@ -37,23 +37,25 @@ function ChangePassword() {
     };
 
     return (
-        <form onSubmit={changePassword}>
-            <h1>Cambiar Contraseña</h1>
-            <h4 className="txt">Usuario</h4> 
-            <input className="entry" type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
-            <br />
+        <div>
+            <form onSubmit={changePassword}>
+                <h1>Cambiar Contraseña</h1>
+                <h4 className="txt">Usuario</h4> 
+                <input className="entry" type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
+                <br />
 
-            <h4 className="txt">Contraseña Anterior</h4> 
-            <input className="entry" type="password" value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} required />
-            <br />
+                <h4 className="txt">Contraseña Anterior</h4> 
+                <input className="entry" type="password" value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} required />
+                <br />
 
-            <h4 className="txt">Nueva Contraseña</h4>
-            <input className="entry" type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} required />
-            <br />
+                <h4 className="txt">Nueva Contraseña</h4>
+                <input className="entry" type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} required />
+                <br />
 
-            <button type="submit" id="btnEnviar">Cambiar Contraseña</button>
+                <button type="submit" id="btnEnviar">Cambiar Contraseña</button>
+            </form>
             <button type="button" className="link" onClick={goHome}>Volver</button>
-        </form>
+        </div>
     );
 }
 
