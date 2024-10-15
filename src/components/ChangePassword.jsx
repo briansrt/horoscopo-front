@@ -8,7 +8,8 @@ function ChangePassword() {
     const [newPassword, setNewPassword] = useState('');
 
     const home = useNavigate();
-    function goHome(){
+    function goHome(event){
+        event.preventDefault(); // Evita que el botón envíe el formulario
         home("/");
     }
 
