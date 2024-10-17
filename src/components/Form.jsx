@@ -27,6 +27,7 @@ function Form({callback}){
             
             if (response.ok) {
                 const data = await response.json();
+                console.log('Data:', data);
                 if (data.role === 'user') {
                     callback('user');
                     goTo('/userHome');
@@ -38,6 +39,7 @@ function Form({callback}){
                 alert('Usuario y/o contraseña incorrectos');
             }
         } catch (error) {
+            console.error('Error:', error);
             alert('Error al conectar con el servidor');
         }
     };
