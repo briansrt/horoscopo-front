@@ -28,15 +28,19 @@ function Form({callback}){
             if (response.ok) {
                 const data = await response.json();
                 console.log('Data:', data);
-                if (data.role === 'user') {
-                    callback('user');
-                    goTo('/userHome');
-                } else if (data.role === 'admin') {
-                    callback('admin');
-                    goTo('/adminHome');
+                if (data.status === 'Bienvenido') {
+                    if (data.role === 'user') {
+                        callback('user');
+                        goTo('/userHome');
+                    } else if (data.role === 'admin') {
+                        callback('admin');
+                        goTo('/adminHome');
+                    }
+                } else if (data.status === 'ErrorCredenciales') {
+                    alert('Usuario y/o contraseña incorrectos');
                 }
             } else {
-                alert('Usuario y/o contraseña incorrectos');
+                alert('Error al conectar a la base de datos');
             }
         } catch (error) {
             console.error('Error:', error);
