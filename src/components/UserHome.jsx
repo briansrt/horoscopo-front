@@ -14,15 +14,32 @@ function UserHome({user}){
         home("/");
     }
 
-    async function handleSelect(event){
+    async function handleSelect(event) {
         const signo = event.target.value;
-        if(signo!=="0"){
-            fetch(`https://horoscopo-back.vercel.app/v1/signos/${signo}`)
-                .then(response => response.json())
-                .then(responseData => setTextoSigno(responseData.message))
-                .catch(error => console.error('Error:', error));
-        } 
+        
+        console.log("Signo seleccionado:", signo);  // Verifica el signo seleccionado
+        
+        if (signo !== "0") {
+            try {
+                const response = await fetch(`https://horoscopo-back.vercel.app/v1/signos/${signo}`);
+                const responseData = await response.json();
+                
+                console.log("Respuesta de la API:", responseData);  // Verifica la respuesta de la API
+                
+                // Verifica que la respuesta tenga el formato correcto
+                if (response.ok && responseData.message) {
+                    console.log("Texto del signo:", responseData.message);  // Muestra el mensaje recibido
+                    setTextoSigno(responseData.message);
+                } else {
+                    setTextoSigno("No se encontraron datos para el signo seleccionado.");
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                setTextoSigno("Error al obtener el signo.");
+            }
+        }
     }
+    
 
     return (
         <div className="container">
