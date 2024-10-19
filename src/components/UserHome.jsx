@@ -19,7 +19,8 @@ function UserHome({user}){
         if(signo!=="0"){
             fetch(`https://horoscopo-back.vercel.app/v1/signos/${signo}`)
                 .then(response => response.json())
-                .then(responseData => setTextoSigno(responseData))
+                .then(responseData => setTextoSigno(responseData.message))
+                .catch(error => console.error('Error:', error));
         } 
     }
 
